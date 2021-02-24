@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Vidly2.Models.Tecaj>
+
+@{
+    ViewBag.Title = "Tecajevi";
+}
+
+<h2>Tecajevi</h2>
+@if (!Model.Any())
+{
+    <p>Tecajevi su nedostupni.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Valuta</th>
+                <th>Srednji Tecaj</th>
+                <th>Drzava</th>
+                <th>Sifra Valuta</th>
+                <th>Kupovni Tecaj</th>
+                <th>Prodajni Tecaj</th>
+                <th>Datum Primjene</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tecaj in Model)
+            {
+            <tr>
+                <td>@tecaj.Valuta</td>
+                <td>@tecaj.Srednji_tecaj</td>
+                <td>@tecaj.Drzava.ToString()</td>
+                <td>@tecaj.Sifra_Valute</td>
+                <td>@tecaj.Kupovni_tecaj</td>
+                <td>@tecaj.Prodajni_tecaj</td>
+                <td>@tecaj.Datum_primjene.ToString("d MMM yyyy")</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
